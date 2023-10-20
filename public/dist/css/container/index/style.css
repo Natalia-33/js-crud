@@ -44,4 +44,37 @@ main {
   padding-bottom: 5px;
 }
 
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 16px;
+}
+.product__title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 12px;
+  color: blue;
+  padding-left: 20%;
+}
+.product__card {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20%;
+  gap: 16px;
+}
+.product__label {
+  font-size: 14px;
+}
+.product__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.product__button {
+  border: 1px solid #ddd;
+  color: blue;
+  padding: 16px;
+  size: 50%;
+}
+
 /*# sourceMappingURL=style.css.map */

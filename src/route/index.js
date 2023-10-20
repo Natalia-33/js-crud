@@ -48,7 +48,7 @@ class User {
       return false
     }
   }
-  static update (user, {email}) => {
+  static update(user, { email }) {
     if (email) {
       user.email = email
     }
@@ -117,12 +117,12 @@ router.post('/user-update', function (req, res) {
   let result = false
 
   console.log(email, password, id)
-// let result = false
-  
+  // let result = false
+
   const user = User.updateById(Number(id), email)
 
-  if (user.verifyPassword(password)){
-    User.update(user, {email})
+  if (user.verifyPassword(password)) {
+    User.update(user, { email })
     result = true
   }
   res.render('success-info', {
@@ -133,4 +133,29 @@ router.post('/user-update', function (req, res) {
   })
 })
 // Підключаємо роутер до бек-енду
+
+// =====================================================
+
+router.get('/product-create', function (req, res) {
+  const list = Product.getList()
+  res.render('product-create', {
+    style: 'product-create',
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
+// ===============================================
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+  const product = new Product(name, price, description)
+  Product.add(product)
+  console.log(Product.getList())
+  res.render('product-alert', {
+    style: 'product-alert',
+    info: 'Товар успішно додано',
+  })
+
+  // ↑↑ сюди вводимо JSON дані
+})
+
 module.exports = router

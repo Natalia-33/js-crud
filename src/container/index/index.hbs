@@ -119,6 +119,31 @@
       </form>
     </div>
   </section>
+
+  <section>
+    <div class="product">
+      <h1 class="product__title">Створення товару</h1>
+      <product method="Post" action='/product-create'>
+      <div class="product__card">
+        <h2>Інформація про товар</h2>
+        <div class="product__info">
+        <label for="name" class="product__label">Назва товару</label>
+        <input type="text" name="name" class="product__input">
+
+          <label for="price" class="product__label">Ціна</label>
+           <input type="price" name="price" class="product__input">
+        </div>
+
+        <div class="product__info"> 
+          <label for="description" class="product__label">Короткий опис товару</label>
+           <input type="description" name="description" class="product__input">
+        </div>
+        <button class="product__button">Створити товар</button>
+      </div>
+      </product>
+    </div>
+    
+  </section>
 </main>
 
 {{! 
