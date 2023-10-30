@@ -154,9 +154,6 @@ class Product {
   static getById = (id) =>
     this.#list.find((product) => product.id === id)
 
-  static updateById = (id, data) => {
-    const product = this.getById(id)
-  }
   static deleteById = (id) => {
     const index = this.#list.findIndex(
       (product) => product.id === id,
@@ -169,7 +166,7 @@ class Product {
     }
   }
 
-  static updateById = (id, { data }) => {
+  static updateById = (id, data) => {
     const product = this.getById(id)
     const { name } = data
     if (product) {
@@ -181,11 +178,6 @@ class Product {
       return false
     }
   }
-  // static update(name, { product }) {
-  //   if (name) {
-  //     product.name = name
-  //   }
-  // }
 }
 // =====================================================
 
@@ -240,7 +232,7 @@ router.get('/product-edit', function (req, res) {
 
   const product = Product.getById(Number(id))
 
-  console.log(product)
+  // console.log(product)
 
   if (product) {
     return res.render('product-edit', {
