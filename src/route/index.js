@@ -181,11 +181,11 @@ class Product {
       return false
     }
   }
-  static update(name, { product }) {
-    if (name) {
-      product.name = name
-    }
-  }
+  // static update(name, { product }) {
+  //   if (name) {
+  //     product.name = name
+  //   }
+  // }
 }
 // =====================================================
 
@@ -238,40 +238,52 @@ router.get('/product-list', function (req, res) {
 router.get('/product-edit', function (req, res) {
   const { id } = req.query
 
-  const list = Product.getById(Number(id))
+  const product = Product.getById(Number(id))
 
-  if (list === undefined) {
-    res.render('product-alert', {
+  console.log(product)
+
+  if (product) {
+    return res.render('product-edit', {
+      style: 'product-edit',
+      data: {
+        name: product.name,
+        price: product.price,
+        id: product.id,
+        description: product.description,
+      },
+    })
+  } else {
+    return res.render('product-alert', {
       style: 'product-alert',
-      info: 'Товар з таким ID не знайдено',
+      info: 'Продукту за таким ID не знайдено',
     })
   }
-
-  res.render('product-edit', {
-    style: 'product-edit',
-    data: {
-      products: {
-        list,
-        isEmpty: list.length === 0,
-      },
-    },
-  })
   // ↑↑ сюди вводимо JSON дані
 })
 
 // =====================================================
 
 router.post('/product-edit', function (req, res) {
-  const { name, price, description, id } = req.body
-
-  Product.updateById(Number(id), name, price, description)
-
-  console.log(Product.getList())
-
-  res.render('product-alert', {
-    style: 'product-alert',
-    info: 'Успішне виконання дії',
+  const { id, name, price, description } = req.body
+  const product = Product.updateById(Number(id), {
+    name,
+    price,
+    description,
   })
+
+  console.log(id)
+  console.log(product)
+  if (product) {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Інформація про товар оновлена',
+    })
+  } else {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Сталася помилка',
+    })
+  }
 })
 // =====================================================
 
