@@ -1,0 +1,189 @@
+{{!
+Це код container файлу для index сторінки, в якому міститься
+код, котрий буде віддаватися по шляху (PATH)
+}}
+{{!-- <main>
+  <section>
+    <div class='form'>
+
+      <h1 class='form__title'>Список товарів</h1>
+      <form method='POST' action='/product-list'>
+        <div class='row'>
+          <div class='card'>
+            <h4 class='card__name'>Стильна сукня</h4>
+            <p class='card__description'>Елегантна сукня з
+              натуральної тканини для особливих випадків</p>
+            <div class='card__id'>ID:1357924680</div>
+            <div class='row'>
+              <div class='card__price'>1500$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Спортивні кросівки</h4>
+            <p class='card__description'>Зручні та стильні
+              кросівки для активного способу життя.</p>
+            <div class='card__id'>ID:9876543210</div>
+            <div class='row'>
+              <div class='card__price'>1200$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Сонячні окуляри</h4>
+            <p class='card__description'>Модні окуляри з
+              високоякісними лінзами для захисту очей від
+              сонця.</p>
+            <div class='card__id'>ID:2469135790</div>
+            <div class='row'>
+              <div class='card__price'>800$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Чоловічий годинник</h4>
+            <p class='card__description'>Елегантний годинник
+              з механічним механізмом і сталевим браслетом.</p>
+            <div class='card__id'>ID:8024679135</div>
+            <div class='row'>
+              <div class='card__price'>2500$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Жіночий рюкзак</h4>
+            <p class='card__description'>Стильний рюкзак з
+              великим відділенням та кишенями.</p>
+            <div class='card__id'>ID: 3192850467</div>
+            <div class='row'>
+              <div class='card__price'>900$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Парасолька</h4>
+            <p class='card__description'>Компактна
+              парасолька з автоматичним механізмом.</p>
+            <div class='card__id'>ID: 6749258130</div>
+            <div class='row'>
+              <div class='card__price'>350$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Столові прибори</h4>
+            <p class='card__description'>Набір столових
+              приборів зі сталі виготовлені в класичному
+              стилі.</p>
+            <div class='card__id'>ID: 5036214789</div>
+            <div class='row'>
+              <div class='card__price'>600$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Шкіряний гаманець</h4>
+            <p class='card__description'>Елегантний гаманець
+              з натуральної шкіри з багатьма відділеннями.</p>
+            <div class='card__id'>ID: 7261943580</div>
+            <div class='row'>
+              <div class='card__price'>400$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+
+          <div class='card'>
+            <h4 class='card__name'>Фітнес-браслет</h4>
+            <p class='card__description'>Браслет для
+              відстеження активності та здоров'я.</p>
+            <div class='card__id'>ID: 1584079263</div>
+            <div class='row'>
+              <div class='card__price'>700$</div>
+              <a
+                href='#/product-edit?id={{id}}'
+                class='btn btn-primary'
+              >Редагувати</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main> --}}
+
+<main>
+  <section>
+    <div class='product'>
+      <h1 class='product__title'>Список товарів</h1>
+      <div>
+        {{#with data.products}}
+          {{#if isEmpty}}
+            <mark>Пустий</mark>
+            <a href='/product-create'>Повернутись назад</a>
+
+          {{else}}
+            <ul class='product__list'>
+              {{#each list}}
+                <li>
+                  <div class='product__card'>
+                    <h2
+                      class='product__card--title'
+                    >{{name}}</h2>
+                    <div
+                      class='product__info'
+                    >{{description}}</div>
+                    <div class='product__id'>ID:{{id}}</div>
+                    <div class='product__button'>
+                      <div class='product__price'>{{price}}
+                        $</div>
+                      <a
+                        class='product__link'
+                        href='/product-edit?id={{id}}'
+                      >Редагувати</a>
+
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        {{/with}}
+      </div>
+    </div>
+  </section>
+</main>
+{{!
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}

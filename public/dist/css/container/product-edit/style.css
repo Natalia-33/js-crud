@@ -11,24 +11,13 @@
   padding-bottom: 4px;
   border-bottom: 1px solid #ddd;
 }
-.form__card {
-  border: 2px solid #ddd;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 5px 5px 5px 2px #ddd;
-}
-.form__card--title {
-  font-size: 20px;
-  font-weight: bold;
-  padding-bottom: 12px;
-}
 .form__content {
   display: grid;
   gap: 24px;
 }
 .form__row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .form__field {
@@ -38,7 +27,7 @@
   font-size: 16px;
   color: rgb(65, 62, 62);
 }
-.form__field p {
+.form__field name {
   font-size: 12px;
   color: gray;
 }
@@ -49,11 +38,26 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
-.form__button {
-  border: 1px solid #ddd;
-  padding: 8px;
+.form__input text {
+  font-size: 10px;
+}
+.form .form__button {
+  border: 1px, solid #ddd;
+  padding: 8px 40px;
+  border-radius: 8px;
   color: white;
   background-color: rgb(32, 116, 194);
+  text-decoration: none;
+}
+.form .form__button--red {
+  border: 1px, solid #ddd;
+  padding: 8px 40px;
+  border-radius: 8px;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(194, 40, 32);
+  text-decoration: none;
 }
 
 main {

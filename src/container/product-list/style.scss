@@ -1,0 +1,75 @@
+@use '../../lib/service.scss' as s;
+
+.product {
+	display: grid;
+	flex-direction: column;
+	padding: s.space(5);
+	gap: s.space(6);
+
+	&__title {
+		font-size: 28px;
+		font-weight: bold;
+	
+		padding-bottom: s.space(1);
+		border-bottom: 1px solid s.color('light');
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: s.space(5);
+	}
+	&__card {
+		
+		border: 2px solid s.color('light');
+		border-radius: s.space(5);
+		padding: s.space(5);
+		box-shadow: 5px 5px 5px 2px s.color('light');
+	}
+
+	&__card--title {
+		font-size: 20px;
+		font-weight: bold;	
+		padding-bottom: s.space(3);
+	}
+		
+		&__info {
+			font-size: 15px;
+		    color: rgb(65, 62,62);
+			padding-bottom: s.space(3);
+		}
+		&__id {
+			color: grey;
+		}
+		&__price {
+			font-weight: bold;
+		}
+		&__id {
+			font-size: 20px;
+			color: gray;
+			padding-bottom: s.space(4);
+
+		}
+		&__button {
+			display: flex;
+			justify-content: space-between;
+		}
+		&__price {
+			font-size: 24px;
+		}
+		&__link {
+			font-size: 20px;
+			text-decoration: none;
+		}
+	}
+
+	
+// main {
+// 	display: grid;
+// }
+
+
+
+
+
+
+

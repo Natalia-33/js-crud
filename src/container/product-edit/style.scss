@@ -1,0 +1,88 @@
+@use '../../lib/service.scss' as s;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	padding: s.space(4);
+	gap: s.space(8);
+&__title {
+	font-size: 28px;
+		font-weight: bold;
+		color: rgb(32, 116, 194);
+		padding-bottom: s.space(1);
+		border-bottom: 1px solid s.color('light');
+}
+&__content {
+	display: grid;
+	gap: s.space(6);
+}
+&__row {
+	display: grid;
+	grid-template-columns: (repeat(3, 1fr));
+	gap: s.space(5);
+}
+&__field {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(2);
+	font-size: 16px;
+	color: rgb(65, 62, 62);
+
+	name{
+		font-size: 12px;
+		color: gray;
+	}
+}
+&__label {
+	font-size: 16px;
+}
+&__input {
+	border: 1px solid s.color('light');
+	padding: s.space(2);
+
+	text{
+		font-size: 10px;
+	}
+}
+.form__button {
+	border: 1px, solid s.color('light');
+		padding: s.space(2) s.space(10);
+		border-radius: s.space(2);
+	   color: white;
+	   background-color: rgb(32, 116, 194);
+	   text-decoration: none;	
+}
+.form__button--red {
+	border: 1px, solid s.color('light');
+		padding: s.space(2) s.space(10);
+		border-radius: s.space(2);
+	   color: white;
+	   justify-content: space-between;
+	   align-items: center;
+	   background-color: rgb(194, 40, 32);
+	   text-decoration: none;	
+	
+}
+
+
+
+
+
+
+
+
+
+}
+main {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(10);
+}
+
+.user-list {
+	li {
+		padding-right: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+}
