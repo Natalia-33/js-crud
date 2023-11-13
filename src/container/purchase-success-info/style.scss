@@ -1,0 +1,74 @@
+@use '../../lib/service.scss' as s;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	padding: s.space(4);
+	gap: s.space(8);
+
+	&__title {
+		font-size: 28px;
+		font-weight: bold;
+		color: rgb(32, 116, 194);
+		padding-bottom: s.space(1);
+		border-bottom: 1px solid s.color('light');
+	}
+	&__card {
+		border: 2px solid s.color('light');
+		border-radius: s.space(5);
+		padding: s.space(5);
+		box-shadow: 5px 5px 5px 2px s.color('light');
+	}
+	&__card--title {
+		font-size: 20px;
+		font-weight: bold;
+		padding-bottom: s.space(3);
+	}
+	&__content {
+		display: grid;
+		gap: s.space(6);
+	}
+	&__row {
+		display: grid;
+		grid-template-columns: (repeat(2, 1fr));
+		gap: s.space(5);
+	}
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: s.space(2);
+		font-size: 16px;
+		color: rgb(65, 62, 62);
+
+		p{
+			font-size: 12px;
+			color: gray;
+		}
+	}
+	&__label {
+		font-size: 16px;
+	}
+	&__input {
+		border: 1px solid s.color('light');
+		padding: s.space(2);
+	}
+	&__button {
+		border: 1px solid s.color('light');
+		padding: s.space(2);
+		color: white;
+		background-color: rgb(32, 116, 194);
+	}
+}
+main {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(10);
+}
+
+.user-list {
+	li {
+		padding-right: 15px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+}

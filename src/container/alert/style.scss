@@ -2,6 +2,8 @@
 
 	
 	.card {
+		display: flex;
+		justify-content: space-between;
 		border: 2px solid s.color('light');
 		border-radius: s.space(5);
 		padding: s.space(5);
