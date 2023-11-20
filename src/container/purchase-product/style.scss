@@ -3,6 +3,7 @@
 @use '../../component/purchase-product/style.scss'as purchaseProduct;
 @use '../../component/field/style.scss'as field;
 @use '../../component/divider/style.scss'as divider;
+@use '../../component/button/style.scss'as button;
 
 .main {
 	display: flex;
@@ -29,6 +30,11 @@
 	gap: s.space(5);
 }
 
+.product-form {
+	display: flex;
+	flex-direction: column;
+}
+
 .product-info__image {
 	max-height: 300px;
 	width: 100%;
@@ -37,6 +43,11 @@
 .product-info__title {
 	font-size: 20px;
 	font-weight: bold;
+}
+
+.product-info__description {
+	font-size: 16px;
+	color: s.color(gray);
 }
 
 .product-info__subtitle {

@@ -8,7 +8,6 @@
   {{#with data.product}}
 <form method="POST" action="/purchase-create?id={{id}}">
 <div class="product-info">
-
   <img src="{{img}}" alt="{{title}}" class="product-info__image">
   <h2 class="product-info__title">{{title}}</h2>
   <p class="product-info__subtitle">{{description}}</p>
@@ -34,8 +33,8 @@
   {{#each data.list}}
      {{> purchase-product data=this}}
   {{/each}}
-
 </div>
+
 </main>
 {{! 
     Цей код містить лише те, що буде виводитись в <body>

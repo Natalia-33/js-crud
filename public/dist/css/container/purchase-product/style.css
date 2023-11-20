@@ -95,6 +95,19 @@
   height: 1px;
 }
 
+.button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.button:hover {
+  opacity: 0, 7;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -121,6 +134,11 @@
   gap: 20px;
 }
 
+.product-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .product-info__image {
   max-height: 300px;
   width: 100%;
@@ -129,6 +147,10 @@
 .product-info__title {
   font-size: 20px;
   font-weight: bold;
+}
+
+.product-info__description {
+  font-size: 16px;
 }
 
 .product-info__subtitle {

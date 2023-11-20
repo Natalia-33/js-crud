@@ -3,50 +3,30 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
  }}
 
-<main>
-  <section>
-    <div class='form'>
-      <h1 clasd='form__title'>Створити користувача</h1>
-      <form method='POST' action='purchase-create'>
-        <div class='form__content'>
-          <div class='form__field'>
-            <label for='email' class='form__label'>Email
-              адреса</label>
-            <input
-              type='email'
-              name='email'
-              class='form__input'
-            />
-          </div>
 
-          <div class='form__field'>
-            <label
-              for='login'
-              class='form__label'
-            >Нікнейм</label>
-            <input
-              type='login'
-              name='login'
-              class='form__input'
-            />
-          </div>
 
-          <div class='form__field'>
-            <label
-              for='password'
-              class='form__label'
-            >Пароль</label>
-            <input
-              type='password'
-              name='password'
-              class='form__input'
-            />
-          </div>
-          <button class='form__button'>Створити</button>
-        </div>
-      </form>
+<main class='main'>
+{{>heading}}
+<section class="purchase-list">
+  <div class="product-cards">
+    {{#each data.products}}
+    <div class="product__card">
+    <img src="{{img}}" alt="{{title}}" class="product-card__image">
+    <h2 class="product__card__title">{{title}}</h2>
+    <p class="product__card__description">{{description}}</p>
+
+    {{#each category}}
+    <span class="product__card__category product__card__category--{{id}}">{{text}}</span>
+    {{/each}}
+
+    <a href="/purchase-product?id={{id}}">
+    {{> button text='Купити зараз' price=price}}
+    </a>
     </div>
-  </section>
+    {{/each}}
+  </div>
+
+</section>
 </main>
 
 {{! 

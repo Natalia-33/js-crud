@@ -1,12 +1,9 @@
 @use '../../lib/service.scss' as s;
 @use '../../component/heading/style.scss'as heading;
-@use '../../component/purchase-product/style.scss' as purchase-product;
+@use '../../component/purchase-product/style.scss'as purchaseProduct;
 @use '../../component/field/style.scss'as field;
 @use '../../component/divider/style.scss'as divider;
 @use '../../component/button/style.scss'as button;
-
-
-
 
 main {
 	display: flex;
@@ -21,13 +18,38 @@ main {
 	gap: s.space(5);
 	padding: s.space(5);
 	border: 1px solid s.color(border);
-	border-radius: 10px;
+	border: 10px;
 }
-.cart {
-	display: grid;
-	gap: space(2);
-}
-.cart__item {
+
+.card {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: s.space(2);
+}
+
+.card__item {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: s.space(2);
+}
+
+.purchase-item__block {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(2);
+	padding-top: s.space(3);
+	padding-bottom: s.space(3);
+
+}
+
+.title {
+	font-size: 16px;
+	font-weight: 400;
+	color: gray;
+}
+
+.text {
+	font-size: 16px;
+	font-weight: 400;
+	color: black;
 }

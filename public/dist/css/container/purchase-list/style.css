@@ -122,17 +122,39 @@ main {
   gap: 20px;
   padding: 20px;
   border: 1px solid;
-  border-radius: 10px;
+  border: 10px;
 }
 
-.cart {
-  display: grid;
-  gap: space(2);
-}
-
-.cart__item {
+.card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card__item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.purchase-item__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+  color: gray;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */
