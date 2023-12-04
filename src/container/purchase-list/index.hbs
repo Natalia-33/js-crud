@@ -4,34 +4,36 @@
  }}
 <main class="main">
   {{> heading}}
-  {{#with data.purchases}}
-<ul class="card">
+   {{#with data.purchases}}
+      <ul class="card">
   {{#each list}}
-<li class="card__item">
-<a href="/purchase-info?id={{id}}">
-<div class="purchase-item__block">
-<span class="title">ID: {{id}}</span>
-</div>
-</a>
+     <li class="card__item">
+     <a href="/purchase-info?id={{id}}">
+     <div class="purchase-item__block">
+     <span class="title">ID: {{id}}</span>
+      </div>
+    </a>
 
-<div class="purchase-item__block">
-  <span class="title">Товари</span>
-  <span class="text">{{product.title}}</span>
-</div>
+      <div class="purchase-item__block">
+        <span class="title">Товари</span>
+        <span class="text">{{product.title}}</span>
+     </div>
 
-<div class="purchase-item__block">
-  <span class="title">Сума до сплати</span>
-  <span class="text">{{totalPrice}}</span>
-</div>
+      <div class="purchase-item__block">
+         <span class="title">Сума до сплати</span>
+        <span class="text">{{totalPrice}} грн</span>
+     </div>
 
-<div class="purchase-item__block">
-  <span class="title">Нараховані бонуси:</span>
-  <span class="text">{{counteredBonus}}</span>
-</div>
-</li>
-  {{/each}}
-{{> divider}}
+      <div class="purchase-item__block">
+        <span class="title">Нараховані бонуси:</span>
+        <span class="text">{{counteredBonus}} грн</span>
+      </div>
+  </li>
+  {{> divider}}
+   {{/each}}
+
 </ul>
+    {{/with}}
 </main>
 {{! 
     Цей код містить лише те, що буде виводитись в <body>

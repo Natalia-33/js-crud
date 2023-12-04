@@ -447,7 +447,7 @@ router.get('/purchase-list', function (req, res) {
   // res.render генерує нам HTML сторінку
   const list = Purchase.getList()
   // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('/purchase-list', {
+  res.render('purchase-list', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-list',
     title: 'Мої замовлення',
@@ -547,33 +547,32 @@ router.post('/purchase-edit', function (req, res) {
       delivery,
     })
   }
+  console.log(newPurchase)
+
+  // Якщо оновлення вдалося, відображуємо повідомлення про успіх
+
+  if (newPurchase) {
+    res.render('alert', {
+      style: 'alert',
+
+      data: {
+        link: '/purchase-list',
+        title: 'Успішне виконання дії',
+        info: 'Товар успішно оновлено',
+      },
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+
+      data: {
+        link: '/purchase-list',
+        title: 'Помилка',
+        info: 'Невдалося оновити товар',
+      },
+    })
+  }
 })
-
-console.log(newPurchase)
-
-// Якщо оновлення вдалося, відображуємо повідомлення про успіх
-
-if (newPurchase) {
-  res.render('alert', {
-    style: 'alert',
-
-    data: {
-      link: '/purchase-list',
-      title: 'Успішне виконання дії',
-      info: 'Товар успішно оновлено',
-    },
-  })
-} else {
-  res.render('alert', {
-    style: 'alert',
-
-    data: {
-      link: '/purchase-list',
-      title: 'Помилка',
-      info: 'Невдалося оновити товар',
-    },
-  })
-}
 // ===========================================================
 // Підключаємо роутер до бек-енду
 
