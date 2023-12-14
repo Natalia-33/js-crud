@@ -151,9 +151,9 @@ router.post('/spotify-create', function (req, res) {
       style: 'alert',
       data: {
         message: 'Помилка',
-        info: 'Введіть назву листа',
+        info: 'Введіть назву плейліста',
         link: isMix
-          ? '/spotify-create?isMix=true'
+          ? `/spotify-create?isMix=true`
           : '/spotify-create',
       },
     })
@@ -173,7 +173,7 @@ router.post('/spotify-create', function (req, res) {
     data: {
       message: 'Успішно',
       info: 'Плейліст створений',
-      link: '/spotify-playlist?id=${playlist.id}',
+      link: `/spotify-playlist?id=${playlist.id}`,
     },
   })
 
@@ -195,7 +195,7 @@ router.get('spotify-playlist', function (req, res) {
       data: {
         message: 'Помилка',
         info: 'Такого плейліста не знайдено',
-        link: '/',
+        link: `/`,
       },
     })
   }
@@ -224,7 +224,7 @@ router.get('spotify-track-delete', function (req, res) {
       data: {
         message: 'Помилка',
         info: 'Такого плейліста не знайдено',
-        link: '/spotify-playlist?id=${playlist.id}',
+        link: `/spotify-playlist?id=${playlist.id}`,
       },
     })
   }
