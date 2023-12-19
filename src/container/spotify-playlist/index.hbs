@@ -6,8 +6,8 @@
   {{#with data}}
     <div class='main__content'>
       <h1 class='title title--center'>{{name}}</h1>
-      <a href='#' class='add-button'>
-        <img src="/svg/add-button.svg" />
+      <a href='/spotify-track-add?playlistId={{playlistId}}' class='add-button'>
+        <img src="/img/svg/add-button.svg" />
         Додати до плейліста
       </a>
 
@@ -19,8 +19,8 @@
               <strong class='track__name'>{{name}}</strong>
               <em class='track__author'>{{author}}</em>
             </div>
-              <a href="spotify-track-delete?playlistId={{../playlistId}}&trackId={{id}}">
-              <img src="/svg/delete_button.svg">
+              <a href="spotify-track-delete?playlistId={{../playlistId}}&trackId={{id}}" class="track__icon">
+              <img src="/img/svg/delete_button.svg">
               </a>
           </li>
         {{/each}}

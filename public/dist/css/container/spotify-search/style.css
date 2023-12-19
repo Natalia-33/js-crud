@@ -8,6 +8,7 @@ a:hover {
 }
 
 .main {
+  background-color: #121212;
   height: 100%;
   color: #ddd;
   display: flex;
@@ -47,14 +48,52 @@ a:hover {
   font-size: 24px;
   color: #ddd;
 }
+.main__author {
+  font-size: 16px;
+  color: #BDBDBD;
+}
 
-.add-button {
+.playlist {
   display: grid;
   grid-template-columns: 92px 1fr;
+  gap: 28px;
   align-items: center;
-  gap: 24px;
+}
+.playlist__list {
+  display: grid;
+  gap: 28px;
+}
+.playlist__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.playlist__name {
+  font-size: 24px;
   color: #ddd;
-  font-size: 18px;
+}
+.playlist__amount {
+  font-size: 16px;
+  color: #BDBDBD;
+}
+
+.search {
+  background-color: #292929;
+  padding: 8px 32px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 32px;
+  color: #ddd;
+  font-size: 24px;
+}
+.search__button {
+  color: #ddd;
+  transition: opacity 0.6s;
+}
+.search__button__hover {
+  opacity: 0.6;
 }
 
 /*# sourceMappingURL=style.css.map */

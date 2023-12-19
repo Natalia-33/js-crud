@@ -29,6 +29,10 @@ class Track {
   static getList() {
     return this.#list.reverse()
   }
+
+  // static getById() {
+  //   return this.#list.reverse()
+  // }
 }
 
 Track.create(
@@ -72,6 +76,7 @@ class Playlist {
     this.id = Math.floor(1000 + Math.random() * 9000) // генеруємо випадкове id
     this.name = name
     this.tracks = []
+    this.image = 'https://picsum.photos/100/100'
   }
 
   // Статичний метод для створення об'єкту Playlist і додавання його до списку #list
@@ -110,11 +115,23 @@ class Playlist {
       (track) => track.id !== trackId,
     )
   }
+
+  static findListByValue(name) {
+    return this.#list.filter((playlist) =>
+      playlist.name
+        .toLowerCase()
+        .includes(name.toLowerCase(value)),
+    )
+  }
 }
+
+Playlist.makeMix(Playlist.create('Test'))
+Playlist.makeMix(Playlist.create('Test'))
+Playlist.makeMix(Playlist.create('Test'))
 // router.get Створює нам один ентпоїнт
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/spotify-choose', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   // ↙️ cюди вводимо назву файлу з сontainer
@@ -167,20 +184,16 @@ router.post('/spotify-create', function (req, res) {
 
   console.log(playlist)
 
-  res.render('alert', {
-    style: 'alert',
+  res.render('spotify-playlist', {
+    style: 'spotify-playlist',
 
     data: {
-      message: 'Успішно',
-      info: 'Плейліст створений',
-      link: `/spotify-playlist?id=${playlist.id}`,
+      playlistId: playlist.id,
+      tracks: playlist.tracks,
+      name: playlist.name,
+      image: playlist.image,
     },
   })
-
-  // res.render('spotify-create', {
-  //   style: 'spotify-create',
-  //   data: {},
-  // })
 })
 
 router.get('spotify-playlist', function (req, res) {
@@ -241,5 +254,107 @@ router.get('spotify-track-delete', function (req, res) {
     },
   })
 })
+
 // Підключаємо роутер до бек-енду
 module.exports = router
+
+router.get('spotify-track-add', function (req, res) {
+  const playlistId = Number(req.query.playlistId)
+  const playlist = Playlist.getById(playlistId)
+
+  const allTracks = Track.getList()
+
+  console.log(playlistId, playlist, allTracks)
+
+  res.render('spotify-track-add', {
+    style: 'spotify-track-add',
+
+    data: {
+      playlistId: playlist.id,
+      tracks: allTracks,
+      // link: '/spotify-track-add?playlist={{playlistId}}&trackId=={{id}}',
+    },
+  })
+})
+
+// ====================================================================
+
+router.post('/spotify-track-add', function (req, res) {
+  const playlistId = Number(req.body.playlistId)
+  const trackId = Number(req.body.trackId)
+
+  const playlist = Playlist.getById(playlistId)
+
+  if (!playlist) {
+    return res.render('alert', {
+      style: 'alert',
+
+      data: {
+        message: 'Помилка',
+        info: 'Такого плейліста не знайдено',
+        link: `/spotify-playlist?id=${playlistId}`,
+      },
+    })
+  }
+  const trackToAdd = Track.getList().find(
+    (track) => track.id === trackId,
+  )
+
+  if (!trackToAdd) {
+    return res.render('alert', {
+      style: 'alert',
+
+      data: {
+        message: 'Помилка',
+        info: 'Такого треку не знайдено',
+        link: '/spotify-track-add?playlistId=${playlist}',
+      },
+    })
+  }
+
+  playlist.tracks.push(trackToAdd)
+
+  res.render('spotify-playlist', {
+    style: 'spotify-playlist',
+
+    data: {
+      playlistId: playlist.id,
+      tracks: playlist.tracks,
+      name: playlist.name,
+    },
+  })
+})
+
+router.get('/spotify-search', function (req, res) {
+  const value = ''
+  const list = findListByValue(value)
+
+  res.render('spotify-search', {
+    style: 'spotify-search',
+
+    data: {
+      list: list.lamp(({ tracks, ...rest }) => ({
+        ...rest,
+        amount: tracks.length,
+      })),
+      value,
+    },
+  })
+})
+
+router.post('/spotify-search', function (req, res) {
+  const value = ''
+  const list = findListByValue(value)
+
+  res.render('spotify-search', {
+    style: 'spotify-search',
+
+    data: {
+      list: list.lamp(({ tracks, ...rest }) => ({
+        ...rest,
+        amount: tracks.length,
+      })),
+      value,
+    },
+  })
+})

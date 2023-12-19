@@ -8,6 +8,7 @@ a:hover {
 }
 
 .main {
+  background-color: #121212;
   height: 100%;
   color: #ddd;
   display: flex;
@@ -47,6 +48,35 @@ a:hover {
   font-size: 24px;
   color: #ddd;
 }
+.main__author {
+  font-size: 16px;
+  color: #BDBDBD;
+}
+
+.playlist {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.playlist__list {
+  display: grid;
+  gap: 28px;
+}
+.playlist__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.playlist__name {
+  font-size: 24px;
+  color: #ddd;
+}
+.playlist__amount {
+  font-size: 16px;
+  color: #BDBDBD;
+}
 
 a {
   text-decoration: none;
@@ -58,6 +88,7 @@ a:hover {
 }
 
 .main {
+  background-color: #121212;
   height: 100%;
   color: #ddd;
   display: flex;
@@ -78,6 +109,10 @@ a:hover {
   text-align: center;
 }
 .main .choose {
+  display: grid;
+  gap: 24px;
+}
+.main .choose__item {
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: 24px;
