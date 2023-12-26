@@ -78,6 +78,12 @@ a:hover {
   color: #BDBDBD;
 }
 
+.main__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .title {
   font-size: 16px;
 }
